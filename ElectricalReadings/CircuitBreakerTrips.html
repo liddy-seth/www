@@ -1,0 +1,123 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../css/indexmain.css" type="text/css"
+	media="screen" />
+
+<script type="text/javascript">
+
+function appendedGaugeValuesToEamilURL() 
+{
+	document.getVars = [];
+	var urlHalves = String(document.location).split('?');
+	if(urlHalves[1])
+		{
+		var urlVars = urlHalves[1].split('&');
+ 	  	for(var i=0; i<=(urlVars.length); i++)
+ 	 	  {
+      		if(urlVars[i])
+          	{
+         	var urlVarPair = urlVars[i].split('=');
+         	document.getVars[urlVarPair[0]] = urlVarPair[1];
+			}
+   		  }
+		}
+	var emailLocation= '../Email.html';
+
+	var primaryVoltage = document.getVars.primaryVoltage  ;
+	var primaryCurrent = document.getVars.primaryCurrent ;
+	var secondaryVoltage = document.getVars.secondaryVoltage ;
+	var secondaryCurrent = document.getVars.secondaryCurrent ;
+	var sparkRate = document.getVars.sparkRate; 
+	var fieldLocation = document.getVars.fieldLocation;
+	var preceptType = document.getVars.preceptType;
+	
+	var addedFieldsUrl = "?preceptType=" + preceptType +
+	"&fieldLocation=" + fieldLocation + 
+	"&primaryVoltage=" + primaryVoltage + 
+	"&primaryCurrent=" + primaryCurrent +
+	"&secondaryVoltage=" + secondaryVoltage +  
+	"&secondaryCurrent=" + secondaryCurrent +    
+	"&sparkRate=" + sparkRate +   
+	"&nameplatePrimaryVoltage=" + document.getVars.nameplatePrimaryVoltage +  
+	"&nameplatePrimaryCurrent=" + document.getVars.nameplatePrimaryCurrent +  
+	"&nameplateSecondaryVoltage=" + document.getVars.nameplateSecondaryVoltage +  
+	"&nameplateSecondaryCurrent=" + document.getVars.nameplateSecondaryCurrent ;
+	
+	parent.location = emailLocation + addedFieldsUrl;
+	}
+	
+</script>
+<title>Circuit Breaker Trips</title>
+</head>
+
+<body>
+<div>
+<h3>Circuit Breaker Trips</h3>
+<p>This condition may be related to the precipitator or to the
+electrical control system. It will definitely affect the performance of
+the Precipitator since any field not operating correctly will have
+impact on the outlet emissions. Indications are as follows:</p>
+<ul>
+	<li>The TR control will not keep the ESP field energized.</li>
+	<li>Consistently shows low voltage with surges of high current.</li>
+	<li>TR cabinet / MCC circuit breaker trips frequently.</li>
+</ul>
+Possible causes of the above events are as follows:
+<ul>
+	<li>AVC or firing circuit malfunction.</li>
+	<li>Faulty circuit breaker.</li>
+	<li>SCR shorted or misfiring.</li>
+	<li>Incorrect primary current signal.</li>
+	<li>Incorrect "Phasing” of the SCRs.</li>
+</ul>
+<p></p>
+<h3>COURSE OF ACTION:</h3>
+<p>If the microprocessor control and SCR pack are operating properly
+the AVC will de-energize the control and display an over current trip
+message without tripping the breaker. Failure of the AVC to do this
+requires the following steps to be taken:</p>
+<p></p>
+<ul>
+	<li>Replace the AVC and or Firing circuit - Retest</li>
+	<li>To eliminate a short to ground in the control cabinet as the
+	problem, disconnect the field wiring going to the primary of the
+	transformer rectifier. Connect four 110 volt incandescent lamps in
+	series across the output of the cabinet. Since the cabinet no longer
+	has a substantial load, re-energizing the cabinet should produce line
+	voltage and very very low current. The light bulbs will go to full
+	brightness and measuring the voltage across them will show the full
+	mains voltage. If the breaker trips there is a ground fault in the
+	cabinet.</li>
+	<li>Performing the light bulb test and ensuring the voltage across
+	the ligh bulbs rises smoothly to the mains voltage will verify the
+	connections to the SCR gate / cathodes is correct. While on the light
+	bulb load, the breaker will not trip, but intermittent flashing of the
+	light bulbs or spurious output to them would indicate incorrect
+	connections to the SCR gate / cathodes. If a TR load were connected at
+	this time, there is a high probability of tripping the circuit breaker,
+	blowing a line fuse and even damaging the SCR pack.</li>
+	<li>If after performing all the above checks it is determined that
+	all components are in proper working order yet the breaker continues to
+	trip, replace the breaker. As a double check, place a recording amp
+	meter on the line feed between the breaker and the contactor. If the
+	current does not exceed the control rating, yet the breaker keeps
+	tripping, the breaker is definitely defective.</li>
+</ul>
+<p></p>
+<p>
+ 	<input
+	type="button" name="homeButton" value="Home"
+	onclick="parent.location = '../index.html'" /> 
+	<input
+	type="button" name="emailButton" value="Email"
+	onclick=" appendedGaugeValuesToEamilURL()" />
+	<input type="button" name="backbutton" value="Back" onclick="history.go(-1);"/>
+	<input type="button"
+	name="callUs" id="callUs" value="Call Us" onclick="href=tel:+19083691590"/>
+	</p>
+</div>
+</body>
+</html>

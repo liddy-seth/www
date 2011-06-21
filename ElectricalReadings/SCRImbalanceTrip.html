@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../css/indexmain.css" type="text/css"
+	media="screen" />
+<script type="text/javascript">
+
+function appendedGaugeValuesToEamilURL() 
+{
+	document.getVars = [];
+	var urlHalves = String(document.location).split('?');
+	if(urlHalves[1])
+		{
+		var urlVars = urlHalves[1].split('&');
+ 	  	for(var i=0; i<=(urlVars.length); i++)
+ 	 	  {
+      		if(urlVars[i])
+          	{
+         	var urlVarPair = urlVars[i].split('=');
+         	document.getVars[urlVarPair[0]] = urlVarPair[1];
+			}
+   		  }
+		}
+	var emailLocation= '../Email.html';
+
+	var primaryVoltage = document.getVars.primaryVoltage  ;
+	var primaryCurrent = document.getVars.primaryCurrent ;
+	var secondaryVoltage = document.getVars.secondaryVoltage ;
+	var secondaryCurrent = document.getVars.secondaryCurrent ;
+	var sparkRate = document.getVars.sparkRate; 
+	var fieldLocation = document.getVars.fieldLocation;
+	var preceptType = document.getVars.preceptType;
+	
+	var addedFieldsUrl = "?preceptType=" + preceptType +
+	"&fieldLocation=" + fieldLocation + 
+	"&primaryVoltage=" + primaryVoltage + 
+	"&primaryCurrent=" + primaryCurrent +
+	"&secondaryVoltage=" + secondaryVoltage +  
+	"&secondaryCurrent=" + secondaryCurrent +    
+	"&sparkRate=" + sparkRate +   
+	"&nameplatePrimaryVoltage=" + document.getVars.nameplatePrimaryVoltage +  
+	"&nameplatePrimaryCurrent=" + document.getVars.nameplatePrimaryCurrent +  
+	"&nameplateSecondaryVoltage=" + document.getVars.nameplateSecondaryVoltage +  
+	"&nameplateSecondaryCurrent=" + document.getVars.nameplateSecondaryCurrent ;
+	
+	parent.location = emailLocation + addedFieldsUrl;
+	}
+	
+</script>
+
+<title>SCR Imbalance Trip</title>
+</head>
+
+<body>
+<div>
+<h3>SCR Imbalance Trip</h3>
+<p><img alt="" src="../img/SCRImbalanceTrip.png" /></p>
+<p>This condition is most likely a malfunction of the electrical
+control system. It will definitely affect the performance of the
+Precipitator since any field not operating correctly will have impact on
+the outlet emissions. Indications are as follows:</p>
+<ul>
+	<li>The TR control will not keep the ESP field energized.</li>
+	<li>Consistently shows low voltage with surges of high current.</li>
+	<li>AVC displays an SCR Imbalance trip condition.</li>
+	<li>Possibly a noisy CLR.</li>
+</ul>
+Possible causes of the above events are as follows:
+<ul>
+	<li>SCR misfiring.</li>
+	<li>AVC or firing circuit malfunction.</li>
+	<li>TR Rectifier failure.</li>
+	<li>Severe imbalance in the ESP load while operating in double
+	half wave mode.</li>
+	<li>Electrical noise entering the AVC system.</li>
+</ul>
+
+<h3>COURSE OF ACTION:</h3>
+<p>The SCR imbalance trip initiates when the amplitude of the
+primary current positive and negative waves differs by a preset
+percentage. Replacing the SCRs is the first step. If this does not solve
+the problem replace the firing circuit and or the AVC. If the problem
+still exists, and you have a double half wave output on the TR operating
+in the half wave mode, place a full wave jumper between the output
+bushings. If the imbalance trip continues, follow the TR manufacturer’s
+troubleshooting instructions to determine if the diodes in the bridge
+rectifier have failed. If the imbalance trips stop with the full wave
+jumper in place there could be a major difference in the loading between
+the two frames. An internal inspection should be performed.</p>
+<p>
+ 	<input
+	type="button" name="homeButton" value="Home"
+	onclick="parent.location = '../index.html'" /> 
+	<input
+	type="button" name="emailButton" value="Email"
+	onclick=" appendedGaugeValuesToEamilURL()" />
+	<input type="button" name="backbutton" value="Back" onclick="history.go(-1);"/>
+	<input type="button"
+	name="callUs" id="callUs" value="Call Us" onclick="href=tel:+19083691590"/>
+	</p>
+</div>
+</body>
+</html>

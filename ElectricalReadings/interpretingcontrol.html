@@ -1,0 +1,707 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link rel="stylesheet" href="../css/indexmain.css" type="text/css"
+	media="screen" />
+
+<script type="text/javascript">
+
+(function(){ // Import GET Vars :D 
+	   document.getVars = [];
+	   var urlHalves = String(document.location).split('?');
+	   if(urlHalves[1]){
+	      var urlVars = urlHalves[1].split('&');
+	      for(var i=0; i<=(urlVars.length); i++){
+	         if(urlVars[i]){
+	            var urlVarPair = urlVars[i].split('=');
+	            document.getVars[urlVarPair[0]] = urlVarPair[1];
+	         }
+	      }
+	   } 
+	})();
+function appendedGaugeValuesToEamilURL() 
+{
+	document.getVars = [];
+	var urlHalves = String(document.location).split('?');
+	if(urlHalves[1])
+		{
+		var urlVars = urlHalves[1].split('&');
+ 	  	for(var i=0; i<=(urlVars.length); i++)
+ 	 	  {
+      		if(urlVars[i])
+          	{
+         	var urlVarPair = urlVars[i].split('=');
+         	document.getVars[urlVarPair[0]] = urlVarPair[1];
+			}
+   		  }
+		}
+	var emailLocation= '../Email.html';
+
+	var primaryVoltage = document.getElementById("primaryVoltageReading").value / document.getVars.nameplatePrimaryVoltage ;
+	var primaryCurrent = document.getElementById("primaryCurrentReading").value / document.getVars.nameplatePrimaryCurrent;
+	var secondaryVoltage = document.getElementById("secondaryVoltageReading").value / document.getVars.nameplateSecondaryVoltage;
+	var secondaryCurrent = document.getElementById("secondaryCurrentReading").value / document.getVars.nameplateSecondaryCurrent;
+	var sparkRate = document.getElementById("sparkRateReading").value;
+	var fieldLocation = document.getVars.fieldLocation;
+	var preceptType = document.getVars.preceptType;
+	var location = 'PleaseContactUs.html';
+	var addedFieldsUrl = "?preceptType=" + preceptType +
+	"&fieldLocation=" + fieldLocation + 
+	"&primaryVoltage=" + primaryVoltage + 
+	"&primaryCurrent=" + primaryCurrent +
+	"&secondaryVoltage=" + secondaryVoltage +  
+	"&secondaryCurrent=" + secondaryCurrent +    
+	"&sparkRate=" + sparkRate +   
+	"&nameplatePrimaryVoltage=" + document.getVars.nameplatePrimaryVoltage +  
+	"&nameplatePrimaryCurrent=" + document.getVars.nameplatePrimaryCurrent +  
+	"&nameplateSecondaryVoltage=" + document.getVars.nameplateSecondaryVoltage +  
+	"&nameplateSecondaryCurrent=" + document.getVars.nameplateSecondaryCurrent ;
+
+	
+	parent.location = emailLocation + addedFieldsUrl;
+	}
+function numbersonly(myfield, e, dec)
+{
+var key;
+var keychar;
+
+	if (window.event)
+	   key = window.event.keyCode;
+	else if (e)
+	   key = e.which;
+	else
+ 	  return true;
+	keychar = String.fromCharCode(key);
+
+	// control keys
+	if ((key==null) || (key==0) || (key==8) || (key==9) || (key==13) || (key==27) )
+   return true;
+
+	// numbers
+	else if ((("0123456789").indexOf(keychar) > -1))
+  	 return true;
+
+	// decimal point jump
+	else if (dec && (keychar == "."))
+ 	 {
+  	 myfield.form.elements[dec].focus();
+  	 return false;
+  	 }
+	 
+	else
+  	 return false;
+}
+
+function checkValue() 
+{
+	var primaryVoltage = document.getElementById("primaryVoltageReading").value / document.getVars.nameplatePrimaryVoltage ;
+	var primaryCurrent = document.getElementById("primaryCurrentReading").value / document.getVars.nameplatePrimaryCurrent;
+	var secondaryVoltage = document.getElementById("secondaryVoltageReading").value / document.getVars.nameplateSecondaryVoltage;
+	var secondaryCurrent = document.getElementById("secondaryCurrentReading").value / document.getVars.nameplateSecondaryCurrent;
+	var sparkRate = document.getElementById("sparkRateReading").value;
+	var fieldLocation = document.getVars.fieldLocation;
+	var preceptType = document.getVars.preceptType;
+	var location = 'PleaseContactUs.html';
+	var addedFieldsUrl = "?preceptType=" + preceptType +
+	"&fieldLocation=" + fieldLocation + 
+	"&primaryVoltage=" + primaryVoltage + 
+	"&primaryCurrent=" + primaryCurrent +
+	"&secondaryVoltage=" + secondaryVoltage +  
+	"&secondaryCurrent=" + secondaryCurrent +    
+	"&sparkRate=" + sparkRate +   
+	"&nameplatePrimaryVoltage=" + document.getVars.nameplatePrimaryVoltage +  
+	"&nameplatePrimaryCurrent=" + document.getVars.nameplatePrimaryCurrent +  
+	"&nameplateSecondaryVoltage=" + document.getVars.nameplateSecondaryVoltage +  
+	"&nameplateSecondaryCurrent=" + document.getVars.nameplateSecondaryCurrent ;
+
+
+//Normal no KV Meter
+if (fieldLocation == 'field1' &&
+	primaryVoltage >= .5 && primaryVoltage <= 1 &&
+	primaryCurrent >= .5 && primaryCurrent <= 1 &&
+	secondaryCurrent >= .5 && secondaryCurrent <= 1
+		)
+	{
+	location = 'NormalMeterReading.html';
+	}
+
+
+if (fieldLocation == 'field2' &&
+		primaryVoltage >= .5 && primaryVoltage <= 1 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= .5 && secondaryCurrent <= 1
+			)
+		{
+		location = 'NormalMeterReading.html';
+		}
+
+if (fieldLocation == 'field3' &&
+		primaryVoltage >= .5 && primaryVoltage <= 1 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= .5 && secondaryCurrent <= 1
+			)
+		{
+		location = 'NormalMeterReading.html';
+		}
+
+if (fieldLocation == 'field4' &&
+		primaryVoltage >= .5 && primaryVoltage <= 1 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= .5 && secondaryCurrent <= 1
+			)
+		{
+		location = 'NormalMeterReading.html';
+		}
+
+//Normal with KV Meter
+if (fieldLocation == 'field1' &&
+		primaryVoltage >= .5 && primaryVoltage <= 1 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= .5 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= .5 && secondaryVoltage <= 1
+			)
+		{
+		location = 'NormalMeterReading.html';
+		}
+	 
+
+if (fieldLocation == 'field1' &&
+		primaryVoltage >= .5 && primaryVoltage <= 1 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= .5 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= .5 && secondaryVoltage <= 1 
+		)
+	{
+	location = 'NormalMeterReading.html';
+	}
+
+if (fieldLocation == 'field2' &&
+		primaryVoltage >= .5 && primaryVoltage <= 1 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= .5 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= .5 && secondaryVoltage <= 1
+		)
+	{
+	location = 'NormalMeterReading.html';
+	}
+
+if (fieldLocation == 'field3' &&
+		primaryVoltage >= .5 && primaryVoltage <= 1 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= .5 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= .5 && secondaryVoltage <= 1
+		)
+	{
+	location = 'NormalMeterReading.html';
+	}
+	
+if (fieldLocation == 'field4' &&
+		primaryVoltage >= .5 && primaryVoltage <= 1 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= .5 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= .5 && secondaryVoltage <= 1
+		)
+	{
+	location = 'NormalMeterReading.html';
+	}
+
+//Electrical Short High Resistance
+if (fieldLocation == 'field1' &&
+	primaryVoltage >= 0 && primaryVoltage <= .25 &&
+	primaryCurrent >= .5 && primaryCurrent <= 1 &&
+	secondaryCurrent >= .5 && secondaryCurrent <= 1 &&
+	secondaryVoltage >= 0 && secondaryVoltage <= .05
+		)
+	{
+	location = 'UnderVoltageTrip.html';
+	}
+
+if (fieldLocation == 'field2' &&
+		primaryVoltage >= 0 && primaryVoltage <= .25 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= .5 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= 0 && secondaryVoltage <= .05
+		)
+	{
+	location = 'UnderVoltageTrip.html';
+	}
+
+if (fieldLocation == 'field3' &&
+		primaryVoltage >= 0 && primaryVoltage <= .25 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= .5 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= 0 && secondaryVoltage <= .05
+		)
+	{
+	location = 'UnderVoltageTrip.html';
+	}
+
+if (fieldLocation == 'field4' &&
+		primaryVoltage >= 0 && primaryVoltage <= .25 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= .5 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= 0 && secondaryVoltage <= .05
+		)
+	{
+	location = 'UnderVoltageTrip.html';
+	}
+
+
+//Open Circuit
+if (fieldLocation == 'field1' &&
+		primaryVoltage >= 0 && primaryVoltage <= .5 &&
+		primaryCurrent >= 0 && primaryCurrent <= .01 &&
+		secondaryCurrent >= 0 && secondaryCurrent <= .01 &&
+		secondaryVoltage >= .5 && secondaryVoltage <= 1
+		)
+	{
+	location = 'NoPrimaryOrSecondaryCurrent.html';
+	}
+
+if (fieldLocation == 'field2' &&
+		primaryVoltage >= 0 && primaryVoltage <= .5 &&
+		primaryCurrent >= 0 && primaryCurrent <= .01 &&
+		secondaryCurrent >= 0 && secondaryCurrent <= .01 &&
+		secondaryVoltage >= .5 && secondaryVoltage <= 1
+		)
+	{
+	location = 'NoPrimaryOrSecondaryCurrent.html';
+	}
+
+if (fieldLocation == 'field3' &&
+		primaryVoltage >= 0 && primaryVoltage <= .5 &&
+		primaryCurrent >= 0 && primaryCurrent <= .01 &&
+		secondaryCurrent >= 0 && secondaryCurrent <= .01 &&
+		secondaryVoltage >= .5 && secondaryVoltage <= 1
+		)
+	{
+	location = 'NoPrimaryOrSecondaryCurrent.html';
+	}
+
+if (fieldLocation == 'field4' &&
+		primaryVoltage >= 0 && primaryVoltage <= .5 &&
+		primaryCurrent >= 0 && primaryCurrent <= .01 &&
+		secondaryCurrent >= 0 && secondaryCurrent <= .01 &&
+		secondaryVoltage >= .5 && secondaryVoltage <= 1
+		)
+	{
+	location = 'NoPrimaryOrSecondaryCurrent.html';
+	}
+
+//Low Voltage and Low Current
+if (fieldLocation == 'field1' &&
+		primaryVoltage >= 0 && primaryVoltage <= .4 &&
+		primaryCurrent >= 0 && primaryCurrent <= .4 &&
+		secondaryCurrent >= 0 && secondaryCurrent <= .4 &&
+		secondaryVoltage >= 0 && secondaryVoltage <= .5
+		)
+	{
+	location = 'LowVoltageAndLowCurrent.html';
+	}
+
+
+if (fieldLocation == 'field2' &&
+		primaryVoltage >= 0 && primaryVoltage <= .4 &&
+		primaryCurrent >= 0 && primaryCurrent <= .4 &&
+		secondaryCurrent >= 0 && secondaryCurrent <= .4 &&
+		secondaryVoltage >= 0 && secondaryVoltage <= .5
+		)
+	{
+	location = 'LowVoltageAndLowCurrent.html';
+	}
+
+if (fieldLocation == 'field3' &&
+		primaryVoltage >= 0 && primaryVoltage <= .4 &&
+		primaryCurrent >= 0 && primaryCurrent <= .4 &&
+		secondaryCurrent >= 0 && secondaryCurrent <= .4 &&
+		secondaryVoltage >= 0 && secondaryVoltage <= .5
+		)
+	{
+	location = 'LowVoltageAndLowCurrent.html';
+	}
+
+if (fieldLocation == 'field4' &&
+		primaryVoltage >= 0 && primaryVoltage <= .4 &&
+		primaryCurrent >= 0 && primaryCurrent <= .4 &&
+		secondaryCurrent >= 0 && secondaryCurrent <= .4 &&
+		secondaryVoltage >= 0 && secondaryVoltage <= .5
+		)
+	{
+	location = 'LowVoltageAndLowCurrent.html';
+	}
+
+//Buildup Discharge Electrodes
+if (fieldLocation == 'field1' &&
+		primaryVoltage >= 0 && primaryVoltage <= .5 &&
+		primaryCurrent >= .02 && primaryCurrent <= .2 &&
+		secondaryCurrent >= .20 && secondaryCurrent <= .2 &&
+		secondaryVoltage >= .5 && secondaryVoltage <= 1
+		)
+	{
+	location = 'LowCurrentAndHighVoltage.html';
+	}
+
+if (fieldLocation == 'field2' &&
+		primaryVoltage >= 0 && primaryVoltage <= .5 &&
+		primaryCurrent >= .02 && primaryCurrent <= .2 &&
+		secondaryCurrent >= .20 && secondaryCurrent <= .2 &&
+		secondaryVoltage >= .5 && secondaryVoltage <= 1
+		)
+	{
+	location = 'LowCurrentAndHighVoltage.html';
+	}
+
+if (fieldLocation == 'field3' &&
+		primaryVoltage >= 0 && primaryVoltage <= .5 &&
+		primaryCurrent >= 0 && primaryCurrent <= .2 &&
+		secondaryCurrent >= 0 && secondaryCurrent <= .2 &&
+		secondaryVoltage >= .5 && secondaryVoltage <= 1
+		)
+	{
+	location = 'LowCurrentAndHighVoltage.html';
+	}
+
+if (fieldLocation == 'field4' &&
+		primaryVoltage >= 0 && primaryVoltage <= .5 &&
+		primaryCurrent >= 0 && primaryCurrent <= .2 &&
+		secondaryCurrent >= 0 && secondaryCurrent <= .2 &&
+		secondaryVoltage >= .5 && secondaryVoltage <= 1
+		)
+	{
+	location = 'LowCurrentAndHighVoltage.html';
+	}
+
+//Metering Problem Primary Volts
+if (fieldLocation == 'field1' &&
+		primaryVoltage >= 0 && primaryVoltage <= .05 &&
+		primaryCurrent >= .1 && primaryCurrent <= 1 &&
+		secondaryCurrent >= .1 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= .1 && secondaryVoltage <= 1
+		)
+	{
+	location = 'MeteringProblemPrimaryVoltage.html';
+	}
+
+
+if (fieldLocation == 'field2' &&
+		primaryVoltage >= 0 && primaryVoltage <= .05 &&
+		primaryCurrent >= .1 && primaryCurrent <= 1 &&
+		secondaryCurrent >= .1 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= .1 && secondaryVoltage <= 1
+		)
+	{
+	location = 'MeteringProblemPrimaryVoltage.html';
+	}
+
+if (fieldLocation == 'field3' &&
+		primaryVoltage >= 0 && primaryVoltage <= .05 &&
+		primaryCurrent >= .1 && primaryCurrent <= 1 &&
+		secondaryCurrent >= .1 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= .1 && secondaryVoltage <= 1
+		)
+	{
+	location = 'MeteringProblemPrimaryVoltage.html';
+	}
+
+if (fieldLocation == 'field4' &&
+		primaryVoltage >= 0 && primaryVoltage <= .05 &&
+		primaryCurrent >= .1 && primaryCurrent <= 1 &&
+		secondaryCurrent >= .1 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= .1 && secondaryVoltage <= 1
+		)
+	{
+	location = 'MeteringProblemPrimaryVoltage.html';
+	}
+
+//Metering Problem Primary Current
+if (fieldLocation == 'field1' &&
+		primaryVoltage >= .1 && primaryVoltage <= 1 &&
+		primaryCurrent >= 0 && primaryCurrent <= .1 &&
+		secondaryCurrent >= .1 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= .1 && secondaryVoltage <= 1
+		)
+	{
+	location = 'MeteringProblemPrimaryCurrent.html';
+	}
+
+if (fieldLocation == 'field2' &&
+		primaryVoltage >= .1 && primaryVoltage <= 1 &&
+		primaryCurrent >= 0 && primaryCurrent <= .1 &&
+		secondaryCurrent >= .1 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= .1 && secondaryVoltage <= 1
+		)
+	{
+	location = 'MeteringProblemPrimaryCurrent.html';
+	}
+
+if (fieldLocation == 'field3' &&
+		primaryVoltage >= .1 && primaryVoltage <= 1 &&
+		primaryCurrent >= 0 && primaryCurrent <= .1 &&
+		secondaryCurrent >= .1 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= .1 && secondaryVoltage <= 1
+		)
+	{
+	location = 'MeteringProblemPrimaryCurrent.html';
+	}
+
+if (fieldLocation == 'field4' &&
+		primaryVoltage >= .1 && primaryVoltage <= 1 &&
+		primaryCurrent >= 0 && primaryCurrent <= .1 &&
+		secondaryCurrent >= .1 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= .1 && secondaryVoltage <= 1
+		)
+	{
+	location = 'MeteringProblemPrimaryCurrent.html';
+	}
+
+//Metering Problem Secondary Current
+if (fieldLocation == 'field1' &&
+		primaryVoltage >= .4 && primaryVoltage <= 1 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= 0 && secondaryCurrent <= .4 &&
+		secondaryVoltage >= .5 && secondaryVoltage <= 1
+		)
+	{
+	location = 'MeteringProblemSecondaryCurrent.html';
+	}
+
+
+if (fieldLocation == 'field2' &&
+		primaryVoltage >= .4 && primaryVoltage <= 1 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= 0 && secondaryCurrent <= .4 &&
+		secondaryVoltage >= .5 && secondaryVoltage <= 1
+		)
+	{
+	location = 'MeteringProblemSecondaryCurrent.html';
+	}
+
+if (fieldLocation == 'field3' &&
+		primaryVoltage >= .4 && primaryVoltage <= 1 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= 0 && secondaryCurrent <= .4 &&
+		secondaryVoltage >= .5 && secondaryVoltage <= 1
+		)
+	{
+	location = 'MeteringProblemSecondaryCurrent.html';
+	}
+
+if (fieldLocation == 'field4' &&
+		primaryVoltage >= .4 && primaryVoltage <= 1 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= 0 && secondaryCurrent <= .4 &&
+		secondaryVoltage >= .5 && secondaryVoltage <= 1
+		)
+	{
+	location = 'MeteringProblemSecondaryCurrent.html';
+	}
+
+//Metering Problem Secondary Voltage
+if (fieldLocation == 'field1' &&
+		primaryVoltage >= .4 && primaryVoltage <= 1 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= .5 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= 0 && secondaryVoltage <= .05
+		)
+	{
+	location = 'MeteringProblemSecondaryVoltage.html';
+	}
+
+if (fieldLocation == 'field2' &&
+		primaryVoltage >= .4 && primaryVoltage <= 1 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= .5 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= 0 && secondaryVoltage <= .05
+		)
+	{
+	location = 'MeteringProblemSecondaryVoltage.html';
+	}
+
+if (fieldLocation == 'field3' &&
+		primaryVoltage >= .4 && primaryVoltage <= 1 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= .5 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= 0 && secondaryVoltage <= .05
+		)
+	{
+	location = 'MeteringProblemSecondaryVoltage.html';
+	}
+
+if (fieldLocation == 'field4' &&
+		primaryVoltage >= .4 && primaryVoltage <= 1 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= .5 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= 0 && secondaryVoltage <= .05
+		)
+	{
+	location = 'MeteringProblemSecondaryVoltage.html';
+	}
+
+//SCR Imbalance
+if (fieldLocation == 'field1' &&
+		primaryVoltage >= 0 && primaryVoltage <= .4 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= 0 && secondaryCurrent <= .25 &&
+		secondaryVoltage >= 0 && secondaryVoltage <= .5
+		)
+	{
+	location = 'SCRImbalanceTrip.html';
+	}
+
+if (fieldLocation == 'field2' &&
+		primaryVoltage >= .4 && primaryVoltage <= 1 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= .5 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= 0 && secondaryVoltage <= .5
+		)
+	{
+	location = 'SCRImbalanceTrip.html';
+	}
+
+if (fieldLocation == 'field3' &&
+		primaryVoltage >= .4 && primaryVoltage <= 1 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= .5 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= 0 && secondaryVoltage <= .5
+		)
+	{
+	location = 'SCRImbalanceTrip.html';
+	}
+
+if (fieldLocation == 'field4' &&
+		primaryVoltage >= .4 && primaryVoltage <= 1 &&
+		primaryCurrent >= .5 && primaryCurrent <= 1 &&
+		secondaryCurrent >= .5 && secondaryCurrent <= 1 &&
+		secondaryVoltage >= 0 && secondaryVoltage <= .5
+		)
+	{
+	location = 'SCRImbalanceTrip.html';
+	}
+
+//No Power After Preforming Electrical Repairs in Cabinet
+if (fieldLocation == 'field1' &&
+	primaryVoltage == 0 &&
+	primaryCurrent == 0 &&
+	secondaryCurrent == 0 &&
+	secondaryVoltage == 0 
+		)
+	{
+	location = 'NoPowerAfterPerformingElectricalRepairsInCabinet.html';
+	}
+
+//No Electrical Limit
+if (fieldLocation == 'field1' &&
+	primaryVoltage >= .85 && primaryVoltage <= 1 &&
+	primaryCurrent >= .5 && primaryCurrent <= .9 &&
+	secondaryCurrent >= .5 && primaryCurrent <= .9 &&
+	secondaryVoltage >= .8 && primaryVoltage <= 1 &&
+	sparkRate == 0
+		)
+	{
+	location = 'NoSparkingAndNoElectricalLimit.html';
+	}
+	
+	parent.location = location + addedFieldsUrl;
+
+}
+ fieldLocation = document.getVars.fieldLocation ;
+ preceptType = document.getVars.preceptType;
+ document.write('<input type="hidden" name="fieldLocation" value='+fieldLocation+' />'); 
+ document.write('<input type="hidden" name="preceptType" value='+preceptType+' />'); 
+
+</script>
+
+
+<title>Interpreting TR Control Electrical Readings</title>
+</head>
+
+<body>
+<div>
+
+<form action="" method="get" enctype="multipart/form-data" name="form1"
+	id="form1">
+<h3>Please enter your current readings:</h3>
+<table width="367" border="1">
+	<tr>
+		<td width="123">Meter</td>
+		<td width="135">Reading</td>
+	</tr>
+	<tr>
+		<td>Primary Voltage</td>
+		<td><input name="primaryVoltageReading" type="text"
+			id="primaryVoltageReading" size="4" maxlength="3"
+			onkeypress="return numbersonly(this, event)" />Volts</td>
+	</tr>
+	<tr>
+		<td>Primary Current</td>
+		<td><input name="primaryCurrentReading" type="text"
+			id="primaryCurrentReading" size="4" maxlength="3"
+			onkeypress="return numbersonly(this, event)" />Amps</td>
+	</tr>
+	<tr>
+		<td>Secondary Voltage</td>
+		<td><input name="secondaryVoltageReading" type="text"
+			id="secondaryVoltageReading" size="4" maxlength="3"
+			onkeypress="return numbersonly(this, event)" />Kilovolts</td>
+	</tr>
+	<tr>
+		<td>Secondary Current</td>
+		<td><input name="secondaryCurrentReading" type="text"
+			id="secondaryCurrentReading" size="4" maxlength="4"
+			onkeypress="return numbersonly(this, event)" />Milliamps</td>
+	</tr>
+	<tr>
+		<td>Sparks Per Minute</td>
+		<td><input name="sparkRateReading" type="text"
+			id="sparkRateReading" size="4" maxlength="3"
+			onkeypress="return numbersonly(this, event)" /></td>
+	</tr>
+</table>
+<script type="text/javascript">
+(function(){ // Import GET Vars :D 
+	   document.getVars = [];
+	   var urlHalves = String(document.location).split('?');
+	   if(urlHalves[1]){
+	      var urlVars = urlHalves[1].split('&');
+	      for(var i=0; i<=(urlVars.length); i++){
+	         if(urlVars[i]){
+	            var urlVarPair = urlVars[i].split('=');
+	            document.getVars[urlVarPair[0]] = urlVarPair[1];
+	         }
+	      }
+	   } 
+	})();
+	document.write('<input type="hidden" name="nameplatePrimaryVoltage" value='+ document.getVars.nameplatePrimaryVoltage +' />'); 
+	document.write('<input type="hidden" name="nameplatePrimaryCurrent" value='+ document.getVars.nameplatePrimaryCurrent +' />'); 
+	document.write('<input type="hidden" name="nameplateSecondaryVoltage" value='+ document.getVars.nameplateSecondaryVoltage +' />'); 
+	document.write('<input type="hidden" name="nameplateSecondaryCurrent" value='+ document.getVars.nameplateSecondaryCurrent +' />'); 
+
+	document.write('<input type="hidden" name="primaryVoltage" value='+  document.getElementById("primaryVoltageReading").value  +' />');
+	document.write('<input type="hidden" name="primaryCurrent" value='+  document.getElementById("primaryCurrentReading").value +' />');
+	document.write('<input type="hidden" name="secondaryVoltage" value='+ document.getElementById("secondaryVoltageReading").value +' />');
+	document.write('<input type="hidden" name="secondaryCurrent" value='+  document.getElementById("secondaryCurrentReading").value +' />');
+	document.write('<input type="hidden" name="sparkRate" value='+ document.getElementById("sparkRateReading").value+' />');
+
+	document.write('<input type="hidden" name="fieldLocation" value='+fieldLocation+' />'); 
+	document.write('<input type="hidden" name="preceptType" value='+preceptType+' />'); 
+
+ </script> 
+ 	<br/>
+ <input type="button" value="Submit" onclick="checkValue()" /> 
+ <br/>
+ 	<input
+	type="button" name="homeButton" value="Home"
+	onclick="parent.location = '../index.html'" /> 
+	<input
+	type="button" name="emailButton" value="Email"
+	onclick=" appendedGaugeValuesToEamilURL()" />
+	<input type="button" name="backbutton" value="Back" onclick="history.go(-1);"/>
+	<input type="button"
+	name="callUs" id="callUs" value="Call Us" onclick="href=tel:+19083691590"/>
+	</form>
+</div>
+
+</body>
+</html>

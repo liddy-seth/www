@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../css/indexmain.css" type="text/css"
+	media="screen" />
+
+
+<title>No Primary Or Secondary Current</title>
+</head>
+
+<body>
+<div>
+<h3>No Primary or Secondary Current (high or rated primary voltage and secondary voltage)</h3>
+<p><img alt=""
+	src="../img/OpenCircutNoPrimaryOrSecondaryCurrent.png" /></p>
+<p>This condition will definitely affect the performance of the
+Precipitator since any field not operating correctly will have impact on
+the outlet emissions. Indications are as follows:</p>
+<ul>
+	<li>The TR control displays a moderate voltage (approx. 50% of the
+	line voltage), rated kV, with no primary or secondary current .</li>
+</ul>
+<p>Possible causes of the above events are as follows:</p>
+<ul>
+	<li>TR ground switch position.</li>
+	<li>High voltage disconnected from the precipitator.</li>
+	<li>TR failure.</li>
+</ul>
+
+<h3>COURSE OF ACTION:</h3>
+<p>This condition occurs when there is no load on the TR set HV
+Bushing. The first step in determining the cause is to check that the TR
+disconnect switches are properly made. If they are, place a temporary
+ground on the high voltage bushing of the TR. If the TR is a double half
+wave configuration (two output bushings) make sure the two bushings are
+tied together for full wave operation. With a ground on the secondary of
+the TR the control should reach the primary or secondary current limit
+programmed into the control, and low primary voltage with no secondary
+voltage. If rated current is present the problem lies in an open circuit
+between the TR output bushings and the support bushing tie-in point for
+the high voltage frame. If after grounding the TR high voltage
+bushing(s) the current is still zero, the problem lies within the TR
+set, megger the primary and secondary of the TR per the manufacturer’s
+instructions. If an open circuit exits on the primary, the TR will have
+to be removed for repair. If the open is on the secondary, remove and
+check the full wave diode bridge for an open leg(s). If the diode bridge
+is open, replace the diode stack and retest. If the current is still
+zero, check the RF coils located between the diode bridge and the output
+bushing(s) for an open condition. If the no current condition still
+exists the secondary winding of the transformer core is open and the
+core will need to be replaced.</p>
+<p><input type="button" name="homeButton" value="Home"
+	onclick="parent.location = '../index.html'" />
+	<input
+	type="button" name="emailButton" value="Email"
+	onclick="parent.location = '../Email.html'" />
+	<input type="button" name="backbutton" value="Back" onclick="history.go(-1);"/>
+	<input type="button"
+	name="callUs" id="callUs" value="Call Us" onclick="href=tel:+19083691590"/>
+	</p>
+</div>
+</body>
+</html>

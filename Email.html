@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>REDKOH Diagnostics Center</title>
+
+<link rel="stylesheet" href="./css/indexmain.css" type="text/css"
+	media="screen" />
+
+</head>
+
+<body>
+
+<div>
+
+<IMG border="0" align="Left" src="img/RedkohLogoTransparent.png" width="15%" height="15%" />
+<h2>Precipitator </h2>
+<h2>Diagnostics </h2>
+</div>
+<div>
+<p></p>
+<br>
+<br>
+<p>
+Redkoh Industries has been manufacturing electrostatic precipitator controls for over 25 years. We have manufactured analog, solid state, and microprocessor type controls for the air pollution control industry in the USA and worldwide.
+At our facility in central New Jersey we manufacture our own electronic controls from circuit board design, through assembly, to complete control panel fabrication and testing.
+</p>
+
+<form action="mailto:diagnostics@redkoh.com" method="post" enctype="text/plain" >
+<p>
+Name:<input type="text" name="FirstName">
+</p>
+<p>
+Email:<input type="text" name="Email">
+</p>
+<p>
+Added Comments:<br> <textarea name="Added Comments" rows=2 cols=20></textarea>
+</p>
+ 
+ 
+ <script type="text/javascript">
+(function(){ // Import GET Vars :D 
+	   document.getVars = [];
+	   var urlHalves = String(document.location).split('?');
+	   if(urlHalves[1]){
+	      var urlVars = urlHalves[1].split('&');
+	      for(var i=0; i<=(urlVars.length); i++){
+	         if(urlVars[i]){
+	            var urlVarPair = urlVars[i].split('=');
+	            document.getVars[urlVarPair[0]] = urlVarPair[1];
+	         }
+	      }
+	   } 
+	})();
+	document.write('<input type="hidden" name="spacing" value='                                             ');
+	document.write('<input type="hidden" name="nameplatePrimaryVoltage" value='+ document.getVars.nameplatePrimaryVoltage +' />'); 
+	document.write('<input type="hidden" name="nameplatePrimaryCurrent" value='+ document.getVars.nameplatePrimaryCurrent +' />'); 
+	document.write('<input type="hidden" name="nameplateSecondaryVoltage" value='+ document.getVars.nameplateSecondaryVoltage +' />'); 
+	document.write('<input type="hidden" name="nameplateSecondaryCurrent" value='+ document.getVars.nameplateSecondaryCurrent +' />'); 
+
+	document.write('<input type="hidden" name="primaryVoltage" value='+  document.getElementById("primaryVoltageReading").value  +' />');
+	document.write('<input type="hidden" name="primaryCurrent" value='+  document.getElementById("primaryCurrentReading").value +' />');
+	document.write('<input type="hidden" name="secondaryVoltage" value='+ document.getElementById("secondaryVoltageReading").value +' />');
+	document.write('<input type="hidden" name="secondaryCurrent" value='+  document.getElementById("secondaryCurrentReading").value +' />');
+	document.write('<input type="hidden" name="sparkRate" value='+ document.getElementById("sparkRateReading").value+' />');
+
+	document.write('<input type="hidden" name="fieldLocation" value='+fieldLocation+' />'); 
+	document.write('<input type="hidden" name="preceptType" value='+preceptType+' />'); 
+
+ </script>
+<input type="submit" name="submit" value="Submit">
+</form>
+<br>
+<br>
+<p>
+<input type="button" name="homeButton" value="Home"
+	onclick="parent.location = './index.html'" />
+	<input type="button" name="backbutton" value="Back" onclick="history.go(-1);"/>
+	<input type="button"
+	name="callUs" id="callUs" value="Call Us" onclick="href=tel:+19083691590"/>
+	</p>
+
+<h5>Brought to you by </h5>
+<h5>REDKOH INDUSTRIES, INC.</h5>
+
+</div>
+</body>
+</html>

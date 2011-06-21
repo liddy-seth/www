@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../css/indexmain.css" type="text/css"
+	media="screen" />
+
+
+<title>Low or No Secondary Voltage Reading (all other readings
+appear normal)</title>
+</head>
+
+<body>
+<div>
+<h3>No Secondary Voltage Reading (all other readings appear normal) </h3>
+<p><img alt="" src="../img/LowOrNoSecondaryVoltageReading.png" /></p>
+<p>This condition suggests that there is a suspected failure in the
+secondary voltage metering system. This condition is unlikely to be
+related to the precipitator. It is more likely to be related to the
+performance of the electrical equipment. It is quite possible at this
+stage to assume that this is probably affecting the performance of the
+Precipitator. Potential side effects are:</p>
+<ul>
+	<li>Failure of the control to correctly detect sparks and arcs
+	within the ESP.</li>
+	<li>Failure of the control to correctly limit its output to a
+	preset secondary voltage level.</li>
+	<li>Random under voltage trips.</li>
+</ul>
+Note: A failure of the high voltage divider (if mounted in the TR oil)
+could allow arcing across a failed resistor that might degrade the
+insulation properties of the TR Oil.
+<p></p>
+<h3>COURSE OF ACTION:</h3>
+<p>The secondary voltage measured on the system may be displayed in
+two locations. You may have one or both of the following:</p>
+<ul>
+	<li>Analog Meters on the cabinet door</li>
+	<li>Digital readings on the Automatic Voltage control</li>
+</ul>
+The secondary voltage signal is typically a reference voltage signal
+derived across a voltage divider feedback resistor. This feedback
+resistor is typically located in the low voltage junction box or TR
+ground switch enclosure.
+<ul>
+	<li>Locate the shunt resistor and measure its resistance.</li>
+	<li>Check the operations manual for your system and determine
+	whether or not the resistor is set correctly. If not, set is correctly.</li>
+	<li>This resistor is typically calibrated to provide a voltage
+	signal to the AVC.</li>
+	<li>It is also possible that the surge arrestor in the TR low
+	voltage junction box may have shorted out and will be causing the shunt
+	resistor to be shorted to ground.</li>
+</ul>
+<p>This resistor is typically calibrated to provide a voltage signal
+to the AVC. The analog meter may use the same signal or may be a direct
+current reading device where the current that passes through the meter
+is proportional to the voltage on the ESP. If the analog meter does not
+read the calculated value correctly then the meter may be at fault. If
+the AVC does not read correctly, it is quite possible that the AVC is
+out of calibration or is malfunctioning. If the voltage is not present
+across the shunt resistor, replace the shunt resistor, re-calibrate, and
+recheck the signal. If the signal still is not present there is probably
+a fault within the transformer tank. There are numerous steps involved
+in the fault finding of the High Voltage system on an ESP TR set. Some
+of them are very specific to the manufacturer of your TR and AVC’s.
+These include:</p>
+<ul>
+	<li>Meggering the high voltage resistor that may be in the TR oil
+	or the HV duct.</li>
+	<li>Measuring the current through the High Voltage resistor to
+	ground.</li>
+	<li>Measuring the voltage across the voltage divider resistor to
+	ground.</li>
+</ul>
+The last two of these tests are dangerous and should not be attempted
+other than by a fully trained TR technician.
+
+<p></p>
+<p><input type="button" name="homeButton" value="Home"
+	onclick="parent.location = '../index.html'" />
+	<input
+	type="button" name="emailButton" value="Email"
+	onclick="parent.location = '../Email.html'" />
+	<input type="button" name="backbutton" value="Back" onclick="history.go(-1);"/>
+	<input type="button"
+	name="callUs" id="callUs" value="Call Us" onclick="href=tel:+19083691590"/>
+	</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../css/indexmain.css" type="text/css"
+	media="screen" />
+
+<script type="text/javascript">
+
+function appendedGaugeValuesToEamilURL() 
+{	
+	document.getVars = [];
+var urlHalves = String(document.location).split('?');
+if(urlHalves[1])
+	{
+	var urlVars = urlHalves[1].split('&');
+	  	for(var i=0; i<=(urlVars.length); i++)
+	 	  {
+  		if(urlVars[i])
+      	{
+     	var urlVarPair = urlVars[i].split('=');
+     	document.getVars[urlVarPair[0]] = urlVarPair[1];
+		}
+		  }
+	}
+	var emailLocation= '../Email.html';
+
+	var primaryVoltage = document.getVars.primaryVoltage  ;
+	var primaryCurrent = document.getVars.primaryCurrent ;
+	var secondaryVoltage = document.getVars.secondaryVoltage ;
+	var secondaryCurrent = document.getVars.secondaryCurrent ;
+	var sparkRate = document.getVars.sparkRate; 
+	var fieldLocation = document.getVars.fieldLocation;
+	var preceptType = document.getVars.preceptType;
+	
+	var addedFieldsUrl = "?preceptType=" + preceptType +
+	"&fieldLocation=" + fieldLocation + 
+	"&primaryVoltage=" + primaryVoltage + 
+	"&primaryCurrent=" + primaryCurrent +
+	"&secondaryVoltage=" + secondaryVoltage +  
+	"&secondaryCurrent=" + secondaryCurrent +    
+	"&sparkRate=" + sparkRate +   
+	"&nameplatePrimaryVoltage=" + document.getVars.nameplatePrimaryVoltage +  
+	"&nameplatePrimaryCurrent=" + document.getVars.nameplatePrimaryCurrent +  
+	"&nameplateSecondaryVoltage=" + document.getVars.nameplateSecondaryVoltage +  
+	"&nameplateSecondaryCurrent=" + document.getVars.nameplateSecondaryCurrent ;
+	
+	parent.location = emailLocation + addedFieldsUrl;
+	}
+	
+</script>
+<title>Over Current Trip</title>
+</head>
+
+<body>
+<div>
+<h3>Over Current Trip</h3>
+<p>This condition may be related to the precipitator or to the
+electrical control system. It will definitely affect the performance of
+the Precipitator since any field not operating correctly will have
+impact on the outlet emissions. Indications are as follows:</p>
+<ul>
+	<li>The TR control will not keep the ESP field energized.</li>
+	<li>Consistently shows low voltage with surges of high current.</li>
+	<li>AVC displays an Over current trip condition.</li>
+</ul>
+Possible causes of the above events are as follows:
+<ul>
+	<li>SCR shorted or misfiring.</li>
+	<li>AVC or firing circuit malfunction.</li>
+	<li>Full Hoppers.</li>
+	<li>Cracked Insulator.</li>
+	<li>Broken or swinging discharge electrode.</li>
+	<li>Excessive dust build up on either Discharge Electrodes or
+	Collector Plates.</li>
+	<li>Bridging in hopper.</li>
+	<li>Dust build up on Anti-sway Insulators.</li>
+</ul>
+
+<h3>COURSE OF ACTION:</h3>
+<p>If the AVC is programmed and operating properly, the only way an
+over current trip should occur is if one or both of the SCRs are shorted
+or mis-firing. Start troubleshooting by disconnecting the gate and
+cathode leads of both SCRs at the AVC or the firing circuit. Tape the
+leads individually so they cannot touch other components. Re-energize
+the control and note the current and voltage levels. With the SCRs
+disconnected the current and voltage should be zero. If current and
+voltage are obtained, one or both of the SCRs is defective (either
+shorted or leaking). For reliability sake, replace both SCRs, or single
+power pack, based on the existing arrangement. If after disconnecting
+the SCRs and re-energizing the control the current and voltage are zero,
+the SCRs are okay and the problem probably lies within the AVC. Replace
+the AVC. Be sure not to accidentally swap the SCR1 leads with the SCR2
+leads. If they do get switched you will not get any power out of the
+control when it is re-energized. If the control continues to trip with
+an over-current alarm, it may be the case that your AVC is overly
+sensitive to the events as listed above and is tripping on Overcurrent
+before an under voltage trip can be executed. Go to the section on under
+voltage and investigate the precipitator for the faults as listed</p>
+<p>
+ 	<input
+	type="button" name="homeButton" value="Home"
+	onclick="parent.location = '../index.html'" /> 
+	<input
+	type="button" name="emailButton" value="Email"
+	onclick=" appendedGaugeValuesToEamilURL()" />
+	<input type="button" name="backbutton" value="Back" onclick="history.go(-1);"/>
+	<input type="button"
+	name="callUs" id="callUs" value="Call Us" onclick="href=tel:+19083691590"/>
+	</p>
+</div>
+</body>
+</html>

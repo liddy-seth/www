@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Field Location</title>
+<link rel="stylesheet" href="../css/indexmain.css" type="text/css"
+	media="screen" />
+
+</head>
+<body>
+
+<div>
+<form id="form1" name="form1" method="get"
+	action="./nameplateInformation.html">
+<h3>Where is this field located?</h3>
+<select name="fieldLocation" id="fieldLocation"
+	title="Where is this field located">
+	<option value="field1">Inlet Field</option>
+	<option value="field2">Second Field</option>
+	<option value="field3">Third Field</option>
+	<option value="field4 ">Outlet Field</option>
+</select> <script type="text/javascript">
+(function(){ // Import GET Vars :D 
+	   document.getVars = [];
+	   var urlHalves = String(document.location).split('?');
+	   if(urlHalves[1]){
+	      var urlVars = urlHalves[1].split('&');
+	      for(var i=0; i<=(urlVars.length); i++){
+	         if(urlVars[i]){
+	            var urlVarPair = urlVars[i].split('=');
+	            document.getVars[urlVarPair[0]] = urlVarPair[1];
+	         }
+	      }
+	   } 
+	})();
+ preceptType = document.getVars.preceptType;
+ document.write('<input type="hidden" name="preceptType" value='+preceptType+' />'); 
+ </script>
+<br/>
+ <input type="submit" value="Submit" /> 
+ <br/>
+ 	<input
+	type="button" name="homeButton" value="Home"
+	onclick="parent.location = '../index.html'" /> 
+	<input
+	type="button" name="emailButton" value="Email"
+	onclick=" appendedGaugeValuesToEamilURL()" />
+	<input type="button" name="backbutton" value="Back" onclick="history.go(-1);"/>
+	<input type="button"
+	name="callUs" id="callUs" value="Call Us" onclick="href=tel:+19083691590"/>
+
+	</form>
+</div>
+</body>
+</html>

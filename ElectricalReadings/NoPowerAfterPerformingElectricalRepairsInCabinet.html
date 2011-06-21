@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../css/indexmain.css" type="text/css"
+	media="screen" />
+<script type="text/javascript">
+
+function appendedGaugeValuesToEamilURL() 
+{
+	document.getVars = [];
+	var urlHalves = String(document.location).split('?');
+	if(urlHalves[1])
+		{
+		var urlVars = urlHalves[1].split('&');
+ 	  	for(var i=0; i<=(urlVars.length); i++)
+ 	 	  {
+      		if(urlVars[i])
+          	{
+         	var urlVarPair = urlVars[i].split('=');
+         	document.getVars[urlVarPair[0]] = urlVarPair[1];
+			}
+   		  }
+		}
+	var emailLocation= '../Email.html';
+
+	var primaryVoltage = document.getVars.primaryVoltage  ;
+	var primaryCurrent = document.getVars.primaryCurrent ;
+	var secondaryVoltage = document.getVars.secondaryVoltage ;
+	var secondaryCurrent = document.getVars.secondaryCurrent ;
+	var sparkRate = document.getVars.sparkRate; 
+	var fieldLocation = document.getVars.fieldLocation;
+	var preceptType = document.getVars.preceptType;
+	
+	var addedFieldsUrl = "?preceptType=" + preceptType +
+	"&fieldLocation=" + fieldLocation + 
+	"&primaryVoltage=" + primaryVoltage + 
+	"&primaryCurrent=" + primaryCurrent +
+	"&secondaryVoltage=" + secondaryVoltage +  
+	"&secondaryCurrent=" + secondaryCurrent +    
+	"&sparkRate=" + sparkRate +   
+	"&nameplatePrimaryVoltage=" + document.getVars.nameplatePrimaryVoltage +  
+	"&nameplatePrimaryCurrent=" + document.getVars.nameplatePrimaryCurrent +  
+	"&nameplateSecondaryVoltage=" + document.getVars.nameplateSecondaryVoltage +  
+	"&nameplateSecondaryCurrent=" + document.getVars.nameplateSecondaryCurrent ;
+	
+	parent.location = emailLocation + addedFieldsUrl;
+	}
+	
+</script>
+
+
+<title>No Power After Performing Electrical Repairs in Cabinet</title>
+</head>
+
+<body>
+<div>
+<h3>No Power After Performing Electrical Repairs in Cabinet</h3>
+<p><img alt=""
+	src="../img/NoPowerAfterPerformingElectricalRepairsInCabinet.png" /></p>
+<p>This often happens after repairs to the AVC, firing circuit, SCR
+pack or control transformer have been carried out. The control is turned
+on and no output appears on the TR set. Possible causes of the above
+events are as follows:</p>
+<ul>
+	<li>Blown Main line fuses.</li>
+	<li>Reconnection of replaced components is incorrect.</li>
+</ul>
+<p></p>
+<h3>COURSE OF ACTION:</h3>
+<p></p>
+<ul>
+	<li>Check to see if the main line fuses are blown.</li>
+	<li>The SCRs are typically synchronized to line phase. Therefore,
+	if the SCR1 and SCR2 gate and cathode leads get switched or the wiring
+	to the new control transformer get switched, or the new transformer is
+	wound differently, the SCRs will be out of phase and no power will
+	flow. To fix this problem, either swap the SCR1 and SCR2 gate and
+	cathode leads on Control Board or Firing Circuit, or swap the wiring on
+	the secondary of the control transformer.</li>
+	<li>An out of phase condition can also be detected by observing
+	the conduction angle. If the conduction angle is full-on and the
+	control has no power output, both SCRs are out of phase or open
+	circuited.</li>
+</ul>
+<p></p>
+<p>
+ 	<input
+	type="button" name="homeButton" value="Home"
+	onclick="parent.location = '../index.html'" /> 
+	<input
+	type="button" name="emailButton" value="Email"
+	onclick=" appendedGaugeValuesToEamilURL()" />
+	<input type="button" name="backbutton" value="Back" onclick="history.go(-1);"/>
+	<input type="button"
+	name="callUs" id="callUs" value="Call Us" onclick="href=tel:+19083691590"/>
+	</p>
+</div>
+</body>
+</html>

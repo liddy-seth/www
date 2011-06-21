@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Nameplate Information</title>
+
+<link rel="stylesheet" href="../css/indexmain.css" type="text/css"
+	media="screen" />
+
+
+<script type="text/javascript">
+function validateForm()
+{
+var validateNameplatePrimaryVoltage=document.forms["nameplateForm"]["nameplatePrimaryVoltage"].value;
+var validateNameplatePrimaryCurrent=document.forms["nameplateForm"]["nameplatePrimaryCurrent"].value;
+var validateNameplateSecondaryVoltage=document.forms["nameplateForm"]["nameplateSecondaryVoltage"].value;
+var validateNameplateSecondaryCurrent=document.forms["nameplateForm"]["nameplateSecondaryCurrent"].value;
+
+if (validateNameplatePrimaryVoltage==null || validateNameplatePrimaryVoltage=="")
+  {
+  alert("Nameplate Primary Voltage needs a value");
+  return false;
+  }
+if (validateNameplatePrimaryCurrent==null || validateNameplatePrimaryCurrent=="")
+{
+alert("Nameplate Primary Current needs a value");
+return false;
+}
+if (validateNameplateSecondaryVoltage==null || validateNameplateSecondaryVoltage=="")
+{
+alert("Nameplate Secondary Voltage needs a value");
+return false;
+}
+if (validateNameplateSecondaryCurrent==null || validateNameplateSecondaryCurrent=="")
+{
+alert("Nameplate Secondary Current needs a value");
+return false;
+}
+
+
+}
+
+function numbersonly(myfield, e, dec)
+{
+var key;
+var keychar;
+
+if (window.event)
+   key = window.event.keyCode;
+else if (e)
+   key = e.which;
+else
+   return true;
+keychar = String.fromCharCode(key);
+// numbers
+if ((("0123456789").indexOf(keychar) > -1))
+   return true;
+else
+   return false;
+}
+
+</script>
+</head>
+
+<body>
+<div>
+<form action="interpretingcontrol.html" method="get"
+	name="nameplateForm" id="nameplateForm"
+	onsubmit="return validateForm()"">
+
+<h3>Please enter the Nameplate / TR Rating information:</h3>
+<table width="279" border="1">
+	<tr>
+		<th width="140" scope="row">Primary Voltage</th>
+		<td width="123"><input name="nameplatePrimaryVoltage" type="text"
+			id="nameplatePrimaryVoltage" size="4" maxlength="3"
+			onkeypress="return numbersonly(this, event)" />Volts</td>
+	</tr>
+	<tr>
+		<th scope="row">Primary Current</th>
+		<td><input name="nameplatePrimaryCurrent" type="text"
+			id="nameplatePrimaryCurrent" size="4" maxlength="3"
+			onkeypress="return numbersonly(this, event)" />Amps</td>
+	</tr>
+	<tr>
+		<th scope="row">Secondary Voltage</th>
+		<td><input name="nameplateSecondaryVoltage" type="text"
+			id="nameplateSecondaryVoltage" size="4" maxlength="3"
+			onkeypress="return numbersonly(this, event)" />Kilovolts</td>
+	</tr>
+	<tr>
+		<th scope="row">Secondary Current</th>
+		<td><input name="nameplateSecondaryCurrent" type="text"
+			id="nameplateSecondaryCurrent" size="4" maxlength="4"
+			onkeypress="return numbersonly(this, event)" />Milliamps</td>
+	</tr>
+</table>
+
+
+<script type="text/javascript">
+(function(){ // Import GET Vars :D 
+	   document.getVars = [];
+	   var urlHalves = String(document.location).split('?');
+	   if(urlHalves[1]){
+	      var urlVars = urlHalves[1].split('&');
+	      for(var i=0; i<=(urlVars.length); i++){
+	         if(urlVars[i]){
+	            var urlVarPair = urlVars[i].split('=');
+	            document.getVars[urlVarPair[0]] = urlVarPair[1];
+	         }
+	      }
+	   } 
+	})();
+ var fieldLocation = document.getVars.fieldLocation ;
+ preceptType = document.getVars.preceptType;
+ document.write('<input type="hidden" name="fieldLocation" value='+fieldLocation+' />'); 
+ document.write('<input type="hidden" name="preceptType" value='+preceptType+' />'); 
+ </script> 
+ <br/>
+ 	 <input type="submit" value="Submit" /> 
+ 	 <br/>
+ 	<input
+	type="button" name="homeButton" value="Home"
+	onclick="parent.location = '../index.html'" /> 
+	<input
+	type="button" name="emailButton" value="Email"
+	onclick=" appendedGaugeValuesToEamilURL()" />
+	<input type="button" name="backbutton" value="Back" onclick="history.go(-1);"/>
+	<input type="button"
+	name="callUs" id="callUs" value="Call Us" onclick="href=tel:+19083691590"/>
+ </form>
+</div>
+
+</body>
+
+</html>

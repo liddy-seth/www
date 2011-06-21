@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet"
+	href="../css/indexmain.css"
+	type="text/css" media="screen" />
+
+
+<title>Low or No Secondary Current Reading (all other readings appear normal)</title>
+</head>
+
+<body>
+<div>
+<h3>No or Low  Secondary Current Reading (all other readings appear normal)</h3>
+<p><img alt="" src="../img/LowOrNoSecondaryCurrentReading.png" /></p>
+<p>
+	This condition suggests that there is a suspected failure in the secondary current metering system. This condition is very unlikely to be related to the precipitator. It is more likely to be related to the performance of the electrical equipment.
+
+It is quite possible at this stage to assume that this is probably affecting the performance of the Precipitator.
+
+Potential side effects are:
+</p><ul>
+<li>Failure of the control to correctly detect sparks and arcs within the ESP.</li>
+<li>Failure of the control to correctly limit its output to a preset secondary current level.</li>
+<li>Random over-current trips.</li>
+<li>Random under voltage trips.</li>
+<li>Burned Discharge Electrodes – predominant in wire type electrodes.</li>
+<li>Random Circuit Breaker Trips</li>
+</ul>
+<p></p>
+<h3>COURSE OF ACTION:</h3>
+<p>The secondary current measured on the system may be displayed in two locations. You may have one or both of the following:
+	</p><ul>
+<li>Analog Meters on the cabinet door</li>
+<li>Digital readings on the Automatic Voltage control</li>
+</ul>
+The secondary current signal is typically a voltage reference signal derived across a shunt resistor to ground. This resistor is typically located in the low voltage junction box or TR ground switch enclosure. This resistor is typically calibrated to provide a voltage signal. 
+<ul>
+<li>Locate the shunt resistor and measure its resistance. </li>
+<li>Check the operations manual for your system and determine whether or not the resistor is set correctly. If not, set it correctly.</li>
+<li>This resistor is typically calibrated to provide a voltage signal to the AVC. </li>
+</ul>
+It is also possible that the surge arrestor in the TR low voltage junction box may have shorted out and will be causing the shunt resistor to be shorted to ground. 
+If it is set correctly, measuring the voltage dropped across this resistor allows us to calculate the TR secondary current. The formula used is simply “Secondary Current = Voltage across the resistor / Resistance of the resistor”.
+The analog meter may use the same signal or may be a direct current reading device.
+If the analog meter does not read the calculated value correctly then the meter may be at fault.
+If the AVC does not read correctly, it is quite possible that the AVC is out of calibration or is malfunctioning.
+If the voltage is not present at the shunt resistor, replace the shunt resistor, re-calibrate, and recheck the signal. If the signal still is not present there is probably a fault within the transformer tank. At this point call the manufacturer of the TR for help.
+<p></p>
+<p><input type="button" name="homeButton" value="Home"
+	onclick="parent.location = '../index.html'" />
+	<input
+	type="button" name="emailButton" value="Email"
+	onclick="parent.location = '../Email.html'" />
+	<input type="button" name="backbutton" value="Back" onclick="history.go(-1);"/>
+	<input type="button"
+	name="callUs" id="callUs" value="Call Us" onclick="href=tel:+19083691590"/>
+	</p></div>
+</body>
+</html>

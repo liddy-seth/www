@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Precipitator Diagnostics</title>
+
+<link rel="stylesheet" href="../css/indexmain.css" type="text/css"
+	media="screen" />
+<script type="text/javascript">
+function appendedGaugeValuesToEamilURL() 
+{
+	document.getVars = [];
+	var urlHalves = String(document.location).split('?');
+	if(urlHalves[1])
+		{
+		var urlVars = urlHalves[1].split('&');
+ 	  	for(var i=0; i<=(urlVars.length); i++)
+ 	 	  {
+      		if(urlVars[i])
+          	{
+         	var urlVarPair = urlVars[i].split('=');
+         	document.getVars[urlVarPair[0]] = urlVarPair[1];
+			}
+   		  }
+		}
+	var emailLocation= '../Email.html';
+
+	var primaryVoltage = document.getVars.primaryVoltage  ;
+	var primaryCurrent = document.getVars.primaryCurrent ;
+	var secondaryVoltage = document.getVars.secondaryVoltage ;
+	var secondaryCurrent = document.getVars.secondaryCurrent ;
+	var sparkRate = document.getVars.sparkRate; 
+	var fieldLocation = document.getVars.fieldLocation;
+	var preceptType = document.getVars.preceptType;
+	
+	var addedFieldsUrl = "?preceptType=" + preceptType +
+	"&fieldLocation=" + fieldLocation + 
+	"&primaryVoltage=" + primaryVoltage + 
+	"&primaryCurrent=" + primaryCurrent +
+	"&secondaryVoltage=" + secondaryVoltage +  
+	"&secondaryCurrent=" + secondaryCurrent +    
+	"&sparkRate=" + sparkRate +   
+	"&nameplatePrimaryVoltage=" + document.getVars.nameplatePrimaryVoltage +  
+	"&nameplatePrimaryCurrent=" + document.getVars.nameplatePrimaryCurrent +  
+	"&nameplateSecondaryVoltage=" + document.getVars.nameplateSecondaryVoltage +  
+	"&nameplateSecondaryCurrent=" + document.getVars.nameplateSecondaryCurrent ;
+	
+	parent.location = emailLocation + addedFieldsUrl;
+	}
+</script>
+</head>
+
+<body>
+
+<div>
+<h4>Precipitator Diagnostics</h4>
+<br />
+<form action="./fieldLocation.html" method="get" name="productForm"
+	id="nameplateForm">
+<h3>Please select the precipitator process:</h3>
+<select name="preceptType" id="preceptType" title="Product List">
+	<option value="CatCracker">Cat Cracker</option>
+	<option value="CementKiln">Cement Kiln</option>
+	<option value="LimeKiln">Lime Kiln</option>
+	<option value="RecoveryBoiler">Recovery Boiler</option>
+	<option value="PowerBoiler">Power Boiler</option>
+	<option value="WESP">WESP</option>
+	<option value="OtherDryProcessESP">Other Dry Process ESP</option>
+</select> 
+<br/>
+<input type="submit" value="Submit" />
+<br/>
+ 	<input
+	type="button" name="homeButton" value="Home"
+	onclick="parent.location = '../index.html'" /> 
+	<input
+	type="button" name="emailButton" value="Email"
+	onclick=" appendedGaugeValuesToEamilURL()" />
+	<input type="button" name="backbutton" value="Back" onclick="history.go(-1);"/>
+	<input type="button"
+	name="callUs" id="callUs" value="Call Us" onclick="href=tel:+19083691590"/>
+
+	</form>
+
+
+<br />
+<h3>Brought to you by REDKOH INDUSTRIES, INC.</h3>
+</div>
+
+</body>
+</html>

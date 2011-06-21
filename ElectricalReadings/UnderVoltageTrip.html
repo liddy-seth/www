@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../css/indexmain.css" type="text/css"
+	media="screen" />
+
+<script type="text/javascript">
+
+function appendedGaugeValuesToEamilURL() 
+{   
+	document.getVars = [];
+	var urlHalves = String(document.location).split('?');
+	if(urlHalves[1])
+		{
+		var urlVars = urlHalves[1].split('&');
+ 	  	for(var i=0; i<=(urlVars.length); i++)
+ 	 	  {
+      		if(urlVars[i])
+          	{
+         	var urlVarPair = urlVars[i].split('=');
+         	document.getVars[urlVarPair[0]] = urlVarPair[1];
+			}
+   		  }
+		} 
+	var emailLocation= '../Email.html';
+
+	var primaryVoltage = document.getVars.primaryVoltage  ;
+	var primaryCurrent = document.getVars.primaryCurrent ;
+	var secondaryVoltage = document.getVars.secondaryVoltage ;
+	var secondaryCurrent = document.getVars.secondaryCurrent ;
+	var sparkRate = document.getVars.sparkRate; 
+	var fieldLocation = document.getVars.fieldLocation;
+	var preceptType = document.getVars.preceptType;
+	
+	var addedFieldsUrl = "?preceptType=" + preceptType +
+	"&fieldLocation=" + fieldLocation + 
+	"&primaryVoltage=" + primaryVoltage + 
+	"&primaryCurrent=" + primaryCurrent +
+	"&secondaryVoltage=" + secondaryVoltage +  
+	"&secondaryCurrent=" + secondaryCurrent +    
+	"&sparkRate=" + sparkRate +   
+	"&nameplatePrimaryVoltage=" + document.getVars.nameplatePrimaryVoltage +  
+	"&nameplatePrimaryCurrent=" + document.getVars.nameplatePrimaryCurrent +  
+	"&nameplateSecondaryVoltage=" + document.getVars.nameplateSecondaryVoltage +  
+	"&nameplateSecondaryCurrent=" + document.getVars.nameplateSecondaryCurrent ;
+	
+	parent.location = emailLocation + addedFieldsUrl;
+	}
+	
+</script>
+</head>
+
+<body>
+<div>
+
+<h3>Under Voltage Trip (low or no primary or secondary voltage,
+high or rated primary or secondary current)</h3>
+<h3>Or</h3>
+<h3>No Primary or Secondary Voltage and High or Rated Primary or
+Secondary Current</h3>
+<h3>Or</h3>
+<h3>Under Voltage Trip</h3>
+
+<p><img alt="" src="../img/UnderVoltageTrip.png" /></p>
+<p>This condition is most likely to be related to the precipitator.
+
+It will definitely affect the performance of the Precipitator since any
+field not operating correctly will have impact on the outlet emissions.
+
+Indications are as follows:</p>
+<ul>
+	<li>The TR control will not keep the ESP field energized.</li>
+	<li>Consistently shows low voltage and may exhibit surges of high
+	current.</li>
+	<li>AVC displays an Under Voltage trip condition.</li>
+</ul>
+Possible causes of the above events are as follows:
+<ul>
+	<li>Full Hoppers.</li>
+	<li>Cracked or Tracking Insulator.</li>
+	<li>Broken or swinging discharge electrode.</li>
+	<li>Excessive dust build up on either Discharge Electrodes or
+	Collector Plates.</li>
+	<li>Bridging in hopper.</li>
+	<li>Dust build up on Anti-sway Insulators.</li>
+</ul>
+<p></p>
+<h3>COURSE OF ACTION:</h3>
+<p>If the primary voltage drops below the setting of the Under
+Voltage trip limit the AVC will trip off (there may be a time delay). If
+this occurs, the AVC should display an Under Voltage trip condition. To
+isolate the problem, disconnect the precipitator load from the high
+voltage transformer rectifier (TR) and re-energize. If primary and
+secondary voltage is now present (there should be no primary or
+secondary current) the ground is located within the precipitator. If the
+voltage is still low or zero the problem is within the TR tank. For
+problems within the TR tank consult the manufacture of the TR. For
+problems within the precipitator perform a complete internal inspection.
+</p>
+<p>
+<input
+	type="button" name="homeButton" value="Home"
+	onclick="parent.location = '../index.html'" /> 
+	<input
+	type="button" name="emailButton" value="Email"
+	onclick=" appendedGaugeValuesToEamilURL()" />
+	<input type="button" name="backbutton" value="Back" onclick="history.go(-1);"/>
+	<input type="button"
+	name="callUs" id="callUs" value="Call Us" onclick="href=tel:+19083691590"/>
+	</p>
+</div>
+</body>
+</html>
